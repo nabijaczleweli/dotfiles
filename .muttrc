@@ -136,5 +136,4 @@ macro index <f12> "\
 :unmailboxes '+[Gmail]/Spam'<enter>\
 :unmailboxes '+[Gmail]/Starred'<enter>"
 
-bind generic "\CN"
 set print_command="lp"
