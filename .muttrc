@@ -1,0 +1,140 @@
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=534912
+set imap_delim_chars = '/'
+set sidebar_delim_chars = '/'
+
+# https://medium.com/@itsjefftong/mutt-gmail-59447a4bffef
+set from = 'nabijaczleweli@gmail.com'
+set use_from = yes
+set envelope_from = yes
+set ssl_force_tls = yes
+
+# https://gitlab.com/muttmua/mutt/-/wikis/UseCases/Gmail
+# http://www.mutt.org/doc/manual/#oauth
+set imap_user = 'nabijaczleweli@gmail.com'
+set imap_authenticators='oauthbearer'
+set imap_oauth_refresh_command='oauth2 --quiet\
+  --user=nabijaczleweli@gmail.com\
+  --client_id=[EXPUNGED]\
+  --client_secret=[EXPUNGED]\
+  --refresh_token=[EXPUNGED]'
+
+set folder = 'imaps://imap.gmail.com:993/'
+set spoolfile = +INBOX
+set record = '+[Gmail]/Sent Mail'
+set postponed = '+[Gmail]/Drafts'
+set imap_check_subscribed
+
+# https://gitlab.com/muttmua/mutt/-/wikis/MuttFaq/Sendmail
+set trash='+[Gmail]/Trash'
+
+set smtp_url = 'smtps://nabijaczleweli@gmail.com@smtp.gmail.com:465/'
+set smtp_authenticators = 'oauthbearer'
+set smtp_oauth_refresh_command=$imap_oauth_refresh_command
+
+# https://gitlab.com/muttmua/mutt/-/wikis/MuttGuide/Caching
+set header_cache = '/home/nabijaczleweli/Mail/cache'
+set message_cachedir = '/home/nabijaczleweli/Mail/cache'
+
+# https://heipei.net/2009/09/10/mutt-threading-like-a-pro/
+
+set sort='reverse-threads'
+set sort_browser='reverse-date'
+set sort_aux='last-date-received'
+
+bind index - collapse-thread
+bind index _ collapse-all
+
+# http://www.mutt.org/doc/manual/#encryption
+
+set crypt_use_gpgme
+set crypt_opportunistic_encrypt
+set crypt_autopgp
+set crypt_autosign
+set postpone_encrypt
+
+# https://www.linuxjournal.com/content/cleaning-your-inbox-mutt
+
+group -group __promo -addr contact@humblebundle.com -addr contact@mailer.humblebundle.com -addr noreply@xmail.square-enix.com -addr support@cloud66.com -addr email@egifter.com -addr team@filecoin.io -addr info@twitter.com -addr Promo@email.newegg.com -addr newsletter@newsletter.empik.com -addr sklep@morele.net -addr sale@email.overstock.com -addr rx.taniaksiazka.pl$ -addr support@usendhome.com -addr newsletter@e.bonusprint.co.uk -addr marketing@e.dhgate.com -addr devcareers@simpleprogrammer.com -addr newsletter@email.gog.com -addr zazzle@cm.zazzle.com -addr promotion5@amazon.de -addr vfe-campaign-response@amazon.de -addr promocje@bonito.pl -addr comms@gfycat.com -addr learn@codecademy.com -addr email@engage.redhat.com -addr newsletter@namecheap.com -addr noreply@wasdkeyboards.com -addr nate@natemaingard.com -addr wes@wesbos.com -addr hello@sourcerer.io -addr noreply@em.blizzard.com -addr noreply@humblebundle.com -addr learn@semaphoreci.com -addr john@simpleprogrammer.com -addr llvm-announce@lists.llvm.org -addr marketplace-messages@amazon.de -rx snapeda.com$ -rx bountysource.com$ -addr Mozilla@e.mozilla.org -rx ceneo.pl$ -addr ebay@reply-seller.ebay.pl -addr nate@nate.live -addr email@em.blizzard.com -addr no-reply@mail.instagram.com -addr do-not-reply@stackoverflow.email -addr noreply-comment@blogger.com -addr brittany@purse.io -addr hello@namecheap.com -addr marketing_support@em.livestream.com -addr support@googiehost.com -addr newsletter@email2.gog.com -addr hello@e.drmartens.com -addr sklep@trena.pl -addr Promo@promo.newegg.com -addr noreply@jaycar.com -addr newsletter@jaycar.com.au -rx npmjs.com$
+group -group __statuses -rx support+status@travis-ci.com -rx notifications@discordapp.com-rx notify@twitter.com -addr info@gitlab.com -addr change@mail.change.org -addr powiadomienia@answear.com -addr bingo@patreon.com -addr notifications@redditmail.com -addr lispol@lispol.com -addr noreply@trena.pl -addr service@paypal.pl -addr ebay@ebay.com -addr noreply@discordapp.com
+group -group __CI -addr builds@travis-ci.org -addr builds@travis-ci.com -addr no-reply@appveyor.com
+group -group __livecoding -addr livecoding.tv -addr support@livecoding.tv -addr notifications@livecoding.tv
+
+folder-hook '=INBOX' 'push <f11>'
+macro index <f11> '<imap-fetch-mail>\
+T~t tarta.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+[Gmail]/Admin/001.%20tarta<enter>y<end-cond><untag-pattern>.<enter>\
+\
+T~s money from Bandcamp<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Bandcamp<enter>y<end-cond><untag-pattern>.<enter>\
+\
+T~s ^Patreon Creator Payout<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond><untag-pattern>.<enter>\
+T~s was just sent to you from Patreon!$<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond><untag-pattern>.<enter>\
+\
+T%f __promo<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+[Gmail]/Promo<enter>y<end-cond><untag-pattern>.<enter>\
+\
+T%f __statuses<enter><tag-prefix-cond><save-message>+[Gmail]/Statuses<enter>y<end-cond><untag-pattern>.<enter>\
+T~s "- Stack Exchange$"<enter><tag-prefix-cond><save-message>+[Gmail]/Statuses<enter>y<end-cond><untag-pattern>.<enter>\
+\
+\
+\
+T~f do-not-reply@stackexchange.com<enter><tag-prefix-cond><save-message>+[Gmail]/StackExchange<enter>y<end-cond><untag-pattern>.<enter>\
+\
+T~f no-reply@twitch.tv<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+[Gmail]/Twitch<enter>y<end-cond><untag-pattern>.<enter>\
+\
+T~f notifications@github.com<enter><tag-prefix-cond><save-message>+[Gmail]/GitHub<enter>y<end-cond><untag-pattern>.<enter>\
+\
+T~s kaszyzm<enter><tag-prefix-cond><save-message>+Kaszyzm&reklama<enter>y<end-cond><untag-pattern>.<enter>\
+\
+T%f __CI<enter><tag-prefix-cond><save-message>+[Gmail]/CI<enter>y<end-cond><untag-pattern>.<enter>\
+\
+T%f __livecoding<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+livecoding.tv<enter>y<end-cond><untag-pattern>.<enter>\
+<sync-mailbox>'
+#T~s "^(Re: )?\\\[Pkg-rust-maintainers\\\]"<enter><tag-prefix-cond><save-message>+[Gmail]/Mailing%20lists<enter>y<end-cond><untag-pattern>.<enter>\
+#T~s patron! 🎉$<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond>\
+
+# https://neomutt.org/guide/tuning
+
+# use very high $read_inc to speed up reading hcache'd maildirs
+folder-hook .         'set read_inc=5000'
+# use lower value for reading slower remote IMAP folders
+folder-hook '(^imap)' 'set read_inc=500'
+# use even lower value for reading even slower remote POP folders
+folder-hook '(^pop)'  'set read_inc=5'
+set net_inc=100
+
+
+
+subscribe notifications@github.com
+subscribe pkg-rust-maintainers@alioth-lists.debian.net Pkg-rust-maintainers@alioth-lists.debian.net
+subscribe "@bugs.debian.org$"
+
+
+set delete=yes
+unset mark_old
+
+bind index,pager <F73>      sidebar-prev      # shift+up
+bind index,pager <backtab>  sidebar-next-new
+bind index,pager <F72>      sidebar-next      # shift+down
+bind index,pager <S-Right>  sidebar-open
+
+set sidebar_visible
+set sidebar_folder_indent
+set sidebar_short_path
+set sidebar_next_new_wrap
+
+bind index  G imap-fetch-mail
+
+set send_charset = 'us-ascii:utf-8'
+
+bind index "\CY" previous-entry
+bind index "\CE" next-entry
+bind generic,pager "\CY" previous-line
+bind generic,pager "\CE" next-line
+
+macro index <f12> "\
+:unmailboxes '+[Gmail]/All Mail'<enter>\
+:unmailboxes '+[Gmail]/Important'<enter>\
+:unmailboxes '+[Gmail]/Sent Mail'<enter>\
+:unmailboxes '+[Gmail]/Spam'<enter>\
+:unmailboxes '+[Gmail]/Starred'<enter>"
+
+bind generic "\CN"
+set print_command="lp"
