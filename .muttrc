@@ -18,7 +18,7 @@ set imap_oauth_refresh_command='oauth2 --quiet\
   --client_secret=[EXPUNGED]\
   --refresh_token=[EXPUNGED]'
 
-set folder = 'imaps://imap.gmail.com:993/'
+set folder = 'imaps://nabijaczleweli@gmail.com@imap.gmail.com:993/'
 set spoolfile = +INBOX
 set record = '+[Gmail]/Sent Mail'
 set postponed = '+[Gmail]/Drafts'
@@ -34,6 +34,9 @@ set smtp_oauth_refresh_command=$imap_oauth_refresh_command
 # https://gitlab.com/muttmua/mutt/-/wikis/MuttGuide/Caching
 set header_cache = '/home/nabijaczleweli/Mail/cache'
 set message_cachedir = '/home/nabijaczleweli/Mail/cache'
+
+set header_cache_compress_method = 'zstd'
+set header_cache_compress_level = 10
 
 # https://heipei.net/2009/09/10/mutt-threading-like-a-pro/
 
