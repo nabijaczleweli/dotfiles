@@ -10,6 +10,7 @@ set ssl_force_tls = yes
 
 # https://gitlab.com/muttmua/mutt/-/wikis/UseCases/Gmail
 # http://www.mutt.org/doc/manual/#oauth
+# https://github.com/nabijaczleweli/topfig/#binoauth2
 set imap_user = 'nabijaczleweli@gmail.com'
 set imap_authenticators='oauthbearer'
 set imap_oauth_refresh_command='oauth2 --quiet\
@@ -26,7 +27,7 @@ set postponed = '+[Gmail]/Drafts'
 set imap_check_subscribed
 
 # https://gitlab.com/muttmua/mutt/-/wikis/MuttFaq/Sendmail
-set trash='+[Gmail]/Trash'
+set trash='+Trash'
 
 set smtp_url = 'smtps://nabijaczleweli@gmail.com@smtp.gmail.com:465/'
 set smtp_authenticators = 'oauthbearer'
@@ -104,6 +105,10 @@ folder-hook '(^imap)' 'set read_inc=500'
 # use even lower value for reading even slower remote POP folders
 folder-hook '(^pop)'  'set read_inc=5'
 set net_inc=100
+
+
+set ts_enabled
+unset ts_icon_format
 
 
 
