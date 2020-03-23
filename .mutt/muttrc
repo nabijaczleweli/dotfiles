@@ -12,8 +12,8 @@ set ssl_force_tls = yes
 # http://www.mutt.org/doc/manual/#oauth
 # https://github.com/nabijaczleweli/topfig/#binoauth2
 set imap_user = 'nabijaczleweli@gmail.com'
-set imap_authenticators='oauthbearer'
-set imap_oauth_refresh_command='oauth2 --quiet\
+set imap_authenticators = 'oauthbearer'
+set imap_oauth_refresh_command = 'oauth2 --quiet\
   --user=nabijaczleweli@gmail.com\
   --client_id=[EXPUNGED]\
   --client_secret=[EXPUNGED]\
@@ -27,11 +27,11 @@ set postponed = '+[Gmail]/Drafts'
 set imap_check_subscribed
 
 # https://gitlab.com/muttmua/mutt/-/wikis/MuttFaq/Sendmail
-set trash='+Trash'
+set trash = '+Trash'
 
 set smtp_url = 'smtps://nabijaczleweli@gmail.com@smtp.gmail.com:465/'
 set smtp_authenticators = 'oauthbearer'
-set smtp_oauth_refresh_command=$imap_oauth_refresh_command
+set smtp_oauth_refresh_command = "$imap_oauth_refresh_command"
 
 # https://gitlab.com/muttmua/mutt/-/wikis/MuttGuide/Caching
 set header_cache = '/home/nabijaczleweli/Mail/cache'
@@ -42,9 +42,9 @@ set header_cache_compress_level = 10
 
 # https://heipei.net/2009/09/10/mutt-threading-like-a-pro/
 
-set sort='reverse-threads'
-set sort_browser='reverse-date'
-set sort_aux='last-date-received'
+set sort = 'reverse-threads'
+set sort_browser = 'reverse-date'
+set sort_aux = 'last-date-received'
 
 bind index - collapse-thread
 bind index _ collapse-all
@@ -59,9 +59,9 @@ set postpone_encrypt
 
 # https://www.linuxjournal.com/content/cleaning-your-inbox-mutt
 
-group -group __promo         -addr contact@humblebundle.com -addr contact@mailer.humblebundle.com -addr noreply@xmail.square-enix.com -addr support@cloud66.com -addr email@egifter.com -addr team@filecoin.io -addr info@twitter.com -addr Promo@email.newegg.com -addr newsletter@newsletter.empik.com -addr sklep@morele.net -addr sale@email.overstock.com -addr rx.taniaksiazka.pl$ -addr support@usendhome.com -addr newsletter@e.bonusprint.co.uk -addr marketing@e.dhgate.com -addr devcareers@simpleprogrammer.com -addr newsletter@email.gog.com -addr zazzle@cm.zazzle.com -addr promotion5@amazon.de -addr vfe-campaign-response@amazon.de -addr promocje@bonito.pl -addr comms@gfycat.com -addr learn@codecademy.com -addr email@engage.redhat.com -addr newsletter@namecheap.com -addr noreply@wasdkeyboards.com -addr nate@natemaingard.com -addr wes@wesbos.com -addr hello@sourcerer.io -addr noreply@em.blizzard.com -addr noreply@humblebundle.com -addr learn@semaphoreci.com -addr john@simpleprogrammer.com -addr llvm-announce@lists.llvm.org -addr marketplace-messages@amazon.de -rx snapeda.com$ -rx bountysource.com$ -addr Mozilla@e.mozilla.org -rx ceneo.pl$ -addr ebay@reply-seller.ebay.pl -addr nate@nate.live -addr email@em.blizzard.com -addr no-reply@mail.instagram.com -addr do-not-reply@stackoverflow.email -addr noreply-comment@blogger.com -addr brittany@purse.io -addr hello@namecheap.com -addr marketing_support@em.livestream.com -addr support@googiehost.com -addr newsletter@email2.gog.com -addr hello@e.drmartens.com -addr sklep@trena.pl -addr Promo@promo.newegg.com -addr noreply@jaycar.com -addr newsletter@jaycar.com.au -rx npmjs.com$
+group -group __stackexchange -addr do-not-reply@stackoverflow.email
 group -group __statuses      -addr support+status@travis-ci.com -addr notifications@discordapp.com -addr notify@twitter.com -addr info@gitlab.com -addr change@mail.change.org -addr powiadomienia@answear.com -addr bingo@patreon.com -addr notifications@redditmail.com -addr lispol@lispol.com -addr noreply@trena.pl -addr service@paypal.pl -addr ebay@ebay.com -addr noreply@discordapp.com
-group -group __stackexchange -addr do-not-reply@stackoverflow.email -addr do-not-reply@stackoverflow.email
+group -group __promo         -addr contact@humblebundle.com -addr contact@mailer.humblebundle.com -addr noreply@xmail.square-enix.com -addr support@cloud66.com -addr email@egifter.com -addr team@filecoin.io -addr info@twitter.com -addr Promo@email.newegg.com -addr newsletter@newsletter.empik.com -addr sklep@morele.net -addr sale@email.overstock.com -addr rx.taniaksiazka.pl$ -addr support@usendhome.com -addr newsletter@e.bonusprint.co.uk -addr marketing@e.dhgate.com -addr devcareers@simpleprogrammer.com -addr newsletter@email.gog.com -addr zazzle@cm.zazzle.com -addr promotion5@amazon.de -addr vfe-campaign-response@amazon.de -addr promocje@bonito.pl -addr comms@gfycat.com -addr learn@codecademy.com -addr email@engage.redhat.com -addr newsletter@namecheap.com -addr noreply@wasdkeyboards.com -addr nate@natemaingard.com -addr wes@wesbos.com -addr hello@sourcerer.io -addr noreply@em.blizzard.com -addr noreply@humblebundle.com -addr learn@semaphoreci.com -addr john@simpleprogrammer.com -addr llvm-announce@lists.llvm.org -addr marketplace-messages@amazon.de -rx snapeda.com$ -rx bountysource.com$ -addr Mozilla@e.mozilla.org -rx ceneo.pl$ -addr ebay@reply-seller.ebay.pl -addr nate@nate.live -addr email@em.blizzard.com -addr no-reply@mail.instagram.com -addr noreply-comment@blogger.com -addr brittany@purse.io -addr hello@namecheap.com -addr marketing_support@em.livestream.com -addr support@googiehost.com -addr newsletter@email2.gog.com -addr hello@e.drmartens.com -addr sklep@trena.pl -addr Promo@promo.newegg.com -addr noreply@jaycar.com -addr newsletter@jaycar.com.au -rx npmjs.com$
 group -group __CI            -addr builds@travis-ci.org -addr builds@travis-ci.com -addr no-reply@appveyor.com
 group -group __livecoding    -addr livecoding.tv -addr support@livecoding.tv -addr notifications@livecoding.tv
 
@@ -74,14 +74,14 @@ T~s money from Bandcamp<enter><tag-prefix-cond><save-message>+[Gmail]/Business%2
 T~s ^Patreon Creator Payout<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond><untag-pattern>.<enter>\
 T~s was just sent to you from Patreon!$<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond><untag-pattern>.<enter>\
 \
+T~s "- Stack Exchange$"<enter><tag-prefix-cond><save-message>+[Gmail]/StackExchange<enter>y<end-cond><untag-pattern>.<enter>\
+T%f __stackexchange<enter><tag-prefix-cond><save-message>+[Gmail]/StackExchange<enter>y<end-cond><untag-pattern>.<enter>\
+\
 T%f __promo<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+[Gmail]/Promo<enter>y<end-cond><untag-pattern>.<enter>\
 \
 T%f __statuses<enter><tag-prefix-cond><save-message>+[Gmail]/Statuses<enter>y<end-cond><untag-pattern>.<enter>\
 \
 \
-\
-T~s "- Stack Exchange$"<enter><tag-prefix-cond><save-message>+[Gmail]/StackExchange<enter>y<end-cond><untag-pattern>.<enter>\
-T%f __stackexchange<enter><tag-prefix-cond><save-message>+[Gmail]/StackExchange<enter>y<end-cond><untag-pattern>.<enter>\
 \
 T~f no-reply@twitch.tv<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+[Gmail]/Twitch<enter>y<end-cond><untag-pattern>.<enter>\
 \
@@ -109,7 +109,7 @@ set net_inc=100
 
 set ts_enabled
 unset ts_icon_format
-
+set ts_status_format = "%D with %?m?%m messages&no messages?%?n? [%n NEW]? for $from — NeoMutt@%h"
 
 
 subscribe notifications@github.com
@@ -130,7 +130,7 @@ set sidebar_folder_indent
 set sidebar_short_path
 set sidebar_next_new_wrap
 
-bind index  G imap-fetch-mail
+bind index G imap-fetch-mail
 
 set send_charset = 'us-ascii:utf-8'
 
@@ -147,7 +147,8 @@ macro index <f12> "\
 :unmailboxes '+[Gmail]/Starred'<enter>"
 
 set print_command="lp"
+set tilde
 
 
-set alias_file=~/.mutt/aliases
+set alias_file = ~/.mutt/aliases
 source $alias_file
