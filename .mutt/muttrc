@@ -1,9 +1,14 @@
+macro index <f1> ':source ~/.mutt/nabijaczleweli@gmail.com<enter>:unmailboxes *<enter><change-folder>+INBOX<enter>'
+macro index <f2> ':source ~/.mutt/[EXPUNGED]<enter>:unmailboxes *<enter><change-folder>+INBOX<enter>'
+macro index <f3> ':source ~/.mutt/[EXPUNGED]<enter>:unmailboxes *<enter><change-folder>+INBOX<enter>'
+source ~/.mutt/nabijaczleweli@gmail.com
+
+
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=534912
 set imap_delim_chars = '/'
 set sidebar_delim_chars = '/'
 
 # https://medium.com/@itsjefftong/mutt-gmail-59447a4bffef
-set from = 'nabijaczleweli@gmail.com'
 set use_from = yes
 set envelope_from = yes
 set ssl_force_tls = yes
@@ -11,27 +16,7 @@ set ssl_force_tls = yes
 # https://gitlab.com/muttmua/mutt/-/wikis/UseCases/Gmail
 # http://www.mutt.org/doc/manual/#oauth
 # https://github.com/nabijaczleweli/topfig/#binoauth2
-set imap_user = 'nabijaczleweli@gmail.com'
-set imap_authenticators = 'oauthbearer'
-set imap_oauth_refresh_command = 'oauth2 --quiet\
-  --user=nabijaczleweli@gmail.com\
-  --client_id=[EXPUNGED]\
-  --client_secret=[EXPUNGED]\
-  --refresh_token=[EXPUNGED]'
-
-set folder = 'imaps://nabijaczleweli@gmail.com@imap.gmail.com:993/'
-set spoolfile = +INBOX
-#set record = '+[Gmail]/Sent Mail'
-unset record  # gmail seems to save these automatically
-set postponed = '+[Gmail]/Drafts'
 set imap_check_subscribed
-
-# https://gitlab.com/muttmua/mutt/-/wikis/MuttFaq/Sendmail
-set trash = '+Trash'
-
-set smtp_url = 'smtps://nabijaczleweli@gmail.com@smtp.gmail.com:465/'
-set smtp_authenticators = 'oauthbearer'
-set smtp_oauth_refresh_command = "$imap_oauth_refresh_command"
 
 # https://gitlab.com/muttmua/mutt/-/wikis/MuttGuide/Caching
 set header_cache = '/home/nabijaczleweli/Mail/cache'
@@ -67,33 +52,33 @@ group -group __livecoding    -addr livecoding.tv -addr support@livecoding.tv -ad
 
 # folder-hook '=INBOX' 'push <f11>'
 macro index <f11> '<imap-fetch-mail>\
-T~t tarta.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+[Gmail]/Admin/001.%20tarta<enter>y<end-cond><untag-pattern>.<enter>\
+T~t tarta.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+[Gmail]/Admin/001.%20tarta<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T~s money from Bandcamp<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Bandcamp<enter>y<end-cond><untag-pattern>.<enter>\
+T~s money from Bandcamp<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Bandcamp<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T~s ^Patreon Creator Payout<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond><untag-pattern>.<enter>\
-T~s was just sent to you from Patreon!$<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond><untag-pattern>.<enter>\
+T~s ^Patreon Creator Payout<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond><untag-pattern>~T<enter>\
+T~s was just sent to you from Patreon!$<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T~s "- Stack Exchange$"<enter><tag-prefix-cond><save-message>+[Gmail]/StackExchange<enter>y<end-cond><untag-pattern>.<enter>\
-T%f __stackexchange<enter><tag-prefix-cond><save-message>+[Gmail]/StackExchange<enter>y<end-cond><untag-pattern>.<enter>\
+T~s "- Stack Exchange$"<enter><tag-prefix-cond><save-message>+[Gmail]/StackExchange<enter>y<end-cond><untag-pattern>~T<enter>\
+T%f __stackexchange<enter><tag-prefix-cond><save-message>+[Gmail]/StackExchange<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T%f __promo<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+[Gmail]/Promo<enter>y<end-cond><untag-pattern>.<enter>\
+T%f __promo<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+[Gmail]/Promo<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T%f __statuses<enter><tag-prefix-cond><save-message>+[Gmail]/Statuses<enter>y<end-cond><untag-pattern>.<enter>\
+T%f __statuses<enter><tag-prefix-cond><save-message>+[Gmail]/Statuses<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 \
 \
-T~f no-reply@twitch.tv<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+[Gmail]/Twitch<enter>y<end-cond><untag-pattern>.<enter>\
+T~f no-reply@twitch.tv<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+[Gmail]/Twitch<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T~f notifications@github.com<enter><tag-prefix-cond><save-message>+[Gmail]/GitHub<enter>y<end-cond><untag-pattern>.<enter>\
+T~f notifications@github.com<enter><tag-prefix-cond><save-message>+[Gmail]/GitHub<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T~s kaszyzm<enter><tag-prefix-cond><save-message>+Kaszyzm&reklama<enter>y<end-cond><untag-pattern>.<enter>\
+T~s kaszyzm<enter><tag-prefix-cond><save-message>+Kaszyzm&reklama<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T%f __CI<enter><tag-prefix-cond><save-message>+[Gmail]/CI<enter>y<end-cond><untag-pattern>.<enter>\
+T%f __CI<enter><tag-prefix-cond><save-message>+[Gmail]/CI<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T%f __livecoding<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+livecoding.tv<enter>y<end-cond><untag-pattern>.<enter>\
+T%f __livecoding<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+livecoding.tv<enter>y<end-cond><untag-pattern>~T<enter>\
 <sync-mailbox>'
-#T~s "^(Re: )?\\\[Pkg-rust-maintainers\\\]"<enter><tag-prefix-cond><save-message>+[Gmail]/Mailing%20lists<enter>y<end-cond><untag-pattern>.<enter>\
+#T~s "^(Re: )?\\\[Pkg-rust-maintainers\\\]"<enter><tag-prefix-cond><save-message>+[Gmail]/Mailing%20lists<enter>y<end-cond><untag-pattern>~T<enter>\
 #T~s patron! 🎉$<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond>\
 
 # https://neomutt.org/guide/tuning
@@ -148,6 +133,7 @@ macro index <f12> "\
 
 set print_command="lp"
 set tilde
+set user_agent
 
 
 set alias_file = ~/.mutt/aliases
