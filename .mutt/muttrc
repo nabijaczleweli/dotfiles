@@ -53,6 +53,7 @@ group -group __livecoding    -addr livecoding.tv -addr support@livecoding.tv -ad
 # folder-hook '=INBOX' 'push <f11>'
 macro index <f11> '<imap-fetch-mail>\
 T~t tarta.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+[Gmail]/Admin/001.%20tarta<enter>y<end-cond><untag-pattern>~T<enter>\
+T~t szarotka.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+[Gmail]/Admin/002.%20szarotka<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 T~s money from Bandcamp<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Bandcamp<enter>y<end-cond><untag-pattern>~T<enter>\
 \
