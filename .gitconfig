@@ -22,3 +22,5 @@
 	showSignature = true
 [mergetool]
 	keepBackup = false
+[rerere]
+	enabled = true
