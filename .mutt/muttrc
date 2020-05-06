@@ -63,13 +63,13 @@ T~s was just sent to you from Patreon!$<enter><tag-prefix-cond><save-message>+[G
 T~s "- Stack Exchange$"<enter><tag-prefix-cond><save-message>+[Gmail]/StackExchange<enter>y<end-cond><untag-pattern>~T<enter>\
 T%f __stackexchange<enter><tag-prefix-cond><save-message>+[Gmail]/StackExchange<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T%f __promo<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+[Gmail]/Promo<enter>y<end-cond><untag-pattern>~T<enter>\
+T%f __promo<enter><tag-prefix-cond><save-message>+[Gmail]/Promo<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 T%f __statuses<enter><tag-prefix-cond><save-message>+[Gmail]/Statuses<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 \
 \
-T~f no-reply@twitch.tv<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+[Gmail]/Twitch<enter>y<end-cond><untag-pattern>~T<enter>\
+T~f no-reply@twitch.tv<enter><tag-prefix-cond><save-message>+[Gmail]/Twitch<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 T~f notifications@github.com<enter><tag-prefix-cond><save-message>+[Gmail]/GitHub<enter>y<end-cond><untag-pattern>~T<enter>\
 \
@@ -77,7 +77,7 @@ T~s kaszyzm<enter><tag-prefix-cond><save-message>+Kaszyzm&reklama<enter>y<end-co
 \
 T%f __CI<enter><tag-prefix-cond><save-message>+[Gmail]/CI<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T%f __livecoding<enter><tag-prefix-cond><toggle-new><end-cond><tag-prefix-cond><save-message>+livecoding.tv<enter>y<end-cond><untag-pattern>~T<enter>\
+T%f __livecoding<enter><tag-prefix-cond><save-message>+livecoding.tv<enter>y<end-cond><untag-pattern>~T<enter>\
 <sync-mailbox>'
 #T~s "^(Re: )?\\\[Pkg-rust-maintainers\\\]"<enter><tag-prefix-cond><save-message>+[Gmail]/Mailing%20lists<enter>y<end-cond><untag-pattern>~T<enter>\
 #T~s patron! 🎉$<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond>\
@@ -101,6 +101,7 @@ set ts_status_format = "%D with %?m?%m messages&no messages?%?n? [%n NEW]? for $
 subscribe notifications@github.com
 subscribe pkg-rust-maintainers@alioth-lists.debian.net Pkg-rust-maintainers@alioth-lists.debian.net
 subscribe "@bugs.debian.org$"
+subscribe RP-PPPoE@lists.skoll.ca
 
 
 set delete=yes
