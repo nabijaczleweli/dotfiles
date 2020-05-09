@@ -126,13 +126,6 @@ bind index "\CE" next-entry
 bind generic,pager "\CY" previous-line
 bind generic,pager "\CE" next-line
 
-macro index <f12> "\
-:unmailboxes '+[Gmail]/All Mail'<enter>\
-:unmailboxes '+[Gmail]/Important'<enter>\
-:unmailboxes '+[Gmail]/Sent Mail'<enter>\
-:unmailboxes '+[Gmail]/Spam'<enter>\
-:unmailboxes '+[Gmail]/Starred'<enter>"
-
 set print_command="lp"
 set tilde
 set user_agent
