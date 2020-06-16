@@ -71,11 +71,12 @@ T%f __statuses<enter><tag-prefix-cond><save-message>+[Gmail]/Statuses<enter>y<en
 \
 T~f no-reply@twitch.tv<enter><tag-prefix-cond><save-message>+[Gmail]/Twitch<enter>y<end-cond><untag-pattern>~T<enter>\
 \
+T%f __CI<enter><tag-prefix-cond><save-message>+[Gmail]/CI<enter>y<end-cond><untag-pattern>~T<enter>\
+T~c ci_activity@noreply.github.com<enter><tag-prefix-cond><save-message>+[Gmail]/CI<enter>y<end-cond><untag-pattern>~T<enter>\
+\
 T~f notifications@github.com<enter><tag-prefix-cond><save-message>+[Gmail]/GitHub<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 T~s kaszyzm<enter><tag-prefix-cond><save-message>+Kaszyzm&reklama<enter>y<end-cond><untag-pattern>~T<enter>\
-\
-T%f __CI<enter><tag-prefix-cond><save-message>+[Gmail]/CI<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 T%f __livecoding<enter><tag-prefix-cond><save-message>+livecoding.tv<enter>y<end-cond><untag-pattern>~T<enter>\
 <sync-mailbox>'
