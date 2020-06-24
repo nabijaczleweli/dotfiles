@@ -1,7 +1,9 @@
 macro index <f1> ':source ~/.mutt/nabijaczleweli@gmail.com<enter>:unmailboxes *<enter><change-folder>+INBOX<enter>'
 macro index <f2> ':source ~/.mutt/[EXPUNGED]<enter>:unmailboxes *<enter><change-folder>+INBOX<enter>'
 macro index <f3> ':source ~/.mutt/[EXPUNGED]<enter>:unmailboxes *<enter><change-folder>+INBOX<enter>'
-source ~/.mutt/nabijaczleweli@gmail.com
+macro index <f4> ':source ~/.mutt/nabijaczleweli@nabijaczleweli.xyz<enter>:unmailboxes *<enter><change-folder>+INBOX<enter>'
+#source ~/.mutt/nabijaczleweli@gmail.com
+source ~/.mutt/nabijaczleweli@nabijaczleweli.xyz
 
 
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=534912
@@ -52,36 +54,36 @@ group -group __livecoding    -addr livecoding.tv -addr support@livecoding.tv -ad
 
 # folder-hook '=INBOX' 'push <f11>'
 macro index <f11> '<imap-fetch-mail>\
-T~t tarta.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+[Gmail]/Admin/001.%20tarta<enter>y<end-cond><untag-pattern>~T<enter>\
-T~t szarotka.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+[Gmail]/Admin/002.%20szarotka<enter>y<end-cond><untag-pattern>~T<enter>\
+T~t tarta.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/001.%20tarta<enter>y<end-cond><untag-pattern>~T<enter>\
+T~t szarotka.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/002.%20szarotka<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T~s money from Bandcamp<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Bandcamp<enter>y<end-cond><untag-pattern>~T<enter>\
+T~s money from Bandcamp<enter><tag-prefix-cond><save-message>+Business%20-%20Bandcamp<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T~s ^Patreon Creator Payout<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond><untag-pattern>~T<enter>\
-T~s was just sent to you from Patreon!$<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond><untag-pattern>~T<enter>\
+T~s ^Patreon Creator Payout<enter><tag-prefix-cond><save-message>+Business%20-%20Patreon<enter>y<end-cond><untag-pattern>~T<enter>\
+T~s was just sent to you from Patreon!$<enter><tag-prefix-cond><save-message>+Business%20-%20Patreon<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T~s "- Stack Exchange$"<enter><tag-prefix-cond><save-message>+[Gmail]/StackExchange<enter>y<end-cond><untag-pattern>~T<enter>\
-T%f __stackexchange<enter><tag-prefix-cond><save-message>+[Gmail]/StackExchange<enter>y<end-cond><untag-pattern>~T<enter>\
+T~s "- Stack Exchange$"<enter><tag-prefix-cond><save-message>+StackExchange<enter>y<end-cond><untag-pattern>~T<enter>\
+T%f __stackexchange<enter><tag-prefix-cond><save-message>+StackExchange<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T%f __promo<enter><tag-prefix-cond><save-message>+[Gmail]/Promo<enter>y<end-cond><untag-pattern>~T<enter>\
+T%f __promo<enter><tag-prefix-cond><save-message>+Promo<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T%f __statuses<enter><tag-prefix-cond><save-message>+[Gmail]/Statuses<enter>y<end-cond><untag-pattern>~T<enter>\
+T%f __statuses<enter><tag-prefix-cond><save-message>+Statuses<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 \
 \
-T~f no-reply@twitch.tv<enter><tag-prefix-cond><save-message>+[Gmail]/Twitch<enter>y<end-cond><untag-pattern>~T<enter>\
+T~f no-reply@twitch.tv<enter><tag-prefix-cond><save-message>+Twitch<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T%f __CI<enter><tag-prefix-cond><save-message>+[Gmail]/CI<enter>y<end-cond><untag-pattern>~T<enter>\
-T~c ci_activity@noreply.github.com<enter><tag-prefix-cond><save-message>+[Gmail]/CI<enter>y<end-cond><untag-pattern>~T<enter>\
+T~f notifications@github.com<enter><tag-prefix-cond><save-message>+GitHub<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T~f notifications@github.com<enter><tag-prefix-cond><save-message>+[Gmail]/GitHub<enter>y<end-cond><untag-pattern>~T<enter>\
+T%f __CI<enter><tag-prefix-cond><save-message>+CI<enter>y<end-cond><untag-pattern>~T<enter>\
+T~c ci_activity@noreply.github.com<enter><tag-prefix-cond><save-message>+CI<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 T~s kaszyzm<enter><tag-prefix-cond><save-message>+Kaszyzm&reklama<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 T%f __livecoding<enter><tag-prefix-cond><save-message>+livecoding.tv<enter>y<end-cond><untag-pattern>~T<enter>\
 <sync-mailbox>'
-#T~s "^(Re: )?\\\[Pkg-rust-maintainers\\\]"<enter><tag-prefix-cond><save-message>+[Gmail]/Mailing%20lists<enter>y<end-cond><untag-pattern>~T<enter>\
-#T~s patron! 🎉$<enter><tag-prefix-cond><save-message>+[Gmail]/Business%20-%20Patreon<enter>y<end-cond>\
+#T~s "^(Re: )?\\\[Pkg-rust-maintainers\\\]"<enter><tag-prefix-cond><save-message>+Mailing%20lists<enter>y<end-cond><untag-pattern>~T<enter>\
+#T~s patron! 🎉$<enter><tag-prefix-cond><save-message>+Business%20-%20Patreon<enter>y<end-cond>\
 
 # https://neomutt.org/guide/tuning
 
@@ -96,7 +98,6 @@ set net_inc=100
 
 set ts_enabled
 unset ts_icon_format
-set ts_status_format = "%D with %?m?%m messages&no messages?%?n? [%n NEW]? for $from — NeoMutt@%h"
 
 
 subscribe notifications@github.com

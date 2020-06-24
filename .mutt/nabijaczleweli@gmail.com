@@ -1,5 +1,6 @@
 # https://medium.com/@itsjefftong/mutt-gmail-59447a4bffef
 set from = 'nabijaczleweli@gmail.com'
+set ts_status_format = "%D with %?m?%m messages&no messages?%?n? [%n NEW]? for $from — NeoMutt@%h"
 
 # https://gitlab.com/muttmua/mutt/-/wikis/UseCases/Gmail
 # http://www.mutt.org/doc/manual/#oauth
@@ -24,3 +25,4 @@ set smtp_oauth_refresh_command = "$imap_oauth_refresh_command"
 
 # https://gitlab.com/muttmua/mutt/-/wikis/MuttFaq/Sendmail
 set trash = '+Trash'
+unset imap_condstore
