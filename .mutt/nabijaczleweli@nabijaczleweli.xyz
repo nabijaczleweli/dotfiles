@@ -1,0 +1,22 @@
+# https://medium.com/@itsjefftong/mutt-gmail-59447a4bffef
+set from = 'nabijaczleweli@nabijaczleweli.xyz'
+set ts_status_format = "%D with %?m?%m messages&no messages?%?n? [%n NEW]? for $from — NeoMutt@%h"
+
+set imap_user = 'nabijaczleweli'
+set imap_authenticators = 'plain'
+set imap_pass = '[EXPUNGED]'
+unset imap_oauth_refresh_command
+
+set folder = 'imaps://nabijaczleweli@mail.nabijaczleweli.xyz:993/'
+set spoolfile = +INBOX
+set record = '+INBOX'
+set postponed = '+Drafts'
+
+set smtp_url = 'smtp://nabijaczleweli@mail.nabijaczleweli.xyz:587/'
+set smtp_authenticators = 'plain'
+set smtp_pass = '[EXPUNGED]'
+unset smtp_oauth_refresh_command
+
+# https://gitlab.com/muttmua/mutt/-/wikis/MuttFaq/Sendmail
+set trash = '+Trash'
+set imap_condstore
