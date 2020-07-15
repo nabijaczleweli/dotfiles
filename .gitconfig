@@ -2,7 +2,7 @@
 	default = "simple"
 [user]
 	signingkey = 8D2658F1
-	email = nabijaczleweli@gmail.com
+	email = nabijaczleweli@nabijaczleweli.xyz
 	name = наб
 [color]
 	ui = auto
@@ -24,3 +24,7 @@
 	keepBackup = false
 [rerere]
 	enabled = true
+[format]
+	headers = "X-Mutt-PGP: OS\n"
+[am]
+	messageid = true
