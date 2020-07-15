@@ -3,7 +3,7 @@ macro index <f2> ':source ~/.mutt/[EXPUNGED]<enter>:unmailboxes *<enter><change-
 macro index <f3> ':source ~/.mutt/[EXPUNGED]<enter>:unmailboxes *<enter><change-folder>+INBOX<enter>'
 macro index <f4> ':source ~/.mutt/nabijaczleweli@nabijaczleweli.xyz<enter>:unmailboxes *<enter><change-folder>+INBOX<enter>'
 #source ~/.mutt/nabijaczleweli@gmail.com
-source ~/.mutt/nabijaczleweli@nabijaczleweli.xyz
+push <f4>
 
 
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=534912
@@ -54,7 +54,7 @@ group -group __livecoding    -addr livecoding.tv -addr support@livecoding.tv -ad
 
 # folder-hook '=INBOX' 'push <f11>'
 macro index <f11> '<imap-fetch-mail>\
-T~t tarta.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/001.%20tarta<enter>y<end-cond><untag-pattern>~T<enter>\
+T~t root@tarta.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/001.%20tarta<enter>y<end-cond><untag-pattern>~T<enter>\
 T~t szarotka.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/002.%20szarotka<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 T~s money from Bandcamp<enter><tag-prefix-cond><save-message>+Business%20-%20Bandcamp<enter>y<end-cond><untag-pattern>~T<enter>\
@@ -118,6 +118,8 @@ set sidebar_visible
 set sidebar_folder_indent
 set sidebar_short_path
 set sidebar_next_new_wrap
+set sidebar_format="%B%*  %!%?N?N?"
+set mail_check_stats
 
 bind index G imap-fetch-mail
 
