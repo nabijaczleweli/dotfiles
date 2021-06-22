@@ -1,7 +1,7 @@
-macro index <f1> ':source ~/.mutt/nabijaczleweli@gmail.com<enter>:unmailboxes *<enter><change-folder>+INBOX<enter>'
-macro index <f2> ':source ~/.mutt/[EXPUNGED]<enter>:unmailboxes *<enter><change-folder>+INBOX<enter>'
-macro index <f3> ':source ~/.mutt/[EXPUNGED]<enter>:unmailboxes *<enter><change-folder>+INBOX<enter>'
-macro index <f4> ':source ~/.mutt/nabijaczleweli@nabijaczleweli.xyz<enter>:unmailboxes *<enter><change-folder>+INBOX<enter>'
+macro index <f1> ':unmailboxes *<enter>:named-mailboxes feeds ~/mail/feeds "  podcasts" ~/mail/feeds/podcasts "  webcomics" ~/mail/feeds/webcomics<enter>:source ~/.mutt/nabijaczleweli@gmail.com<enter><change-folder>+INBOX<enter>'
+macro index <f2> ':unmailboxes *<enter>:named-mailboxes feeds ~/mail/feeds "  podcasts" ~/mail/feeds/podcasts "  webcomics" ~/mail/feeds/webcomics<enter>:source ~/.mutt/[EXPUNGED]<enter><change-folder>+INBOX<enter>'
+macro index <f3> ':unmailboxes *<enter>:named-mailboxes feeds ~/mail/feeds "  podcasts" ~/mail/feeds/podcasts "  webcomics" ~/mail/feeds/webcomics<enter>:source ~/.mutt/[EXPUNGED]<enter><change-folder>+INBOX<enter>'
+macro index <f4> ':unmailboxes *<enter>:named-mailboxes feeds ~/mail/feeds "  podcasts" ~/mail/feeds/podcasts "  webcomics" ~/mail/feeds/webcomics<enter>:source ~/.mutt/nabijaczleweli@nabijaczleweli.xyz<enter><change-folder>+INBOX<enter>'
 #source ~/.mutt/nabijaczleweli@gmail.com
 push <f4>
 
@@ -12,7 +12,7 @@ set sidebar_delim_chars = '/'
 
 # https://medium.com/@itsjefftong/mutt-gmail-59447a4bffef
 set use_from = yes
-set envelope_from = yes
+set use_envelope_from = yes
 set ssl_force_tls = yes
 
 # https://gitlab.com/muttmua/mutt/-/wikis/UseCases/Gmail
@@ -54,13 +54,14 @@ group -group __livecoding    -addr livecoding.tv -addr support@livecoding.tv -ad
 
 # folder-hook '=INBOX' 'push <f11>'
 macro index <f11> '<imap-fetch-mail>\
-T~t root@tarta.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/001.%20tarta<enter>y<end-cond><untag-pattern>~T<enter>\
-T~t szarotka.local.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/002.%20szarotka<enter>y<end-cond><untag-pattern>~T<enter>\
+T~t root@tarta.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/001.%20tarta<enter>y<end-cond><untag-pattern>~T<enter>\
+T~t szarotka.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/002.%20szarotka<enter>y<end-cond><untag-pattern>~T<enter>\
+T~t nabtop.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/003.%20nabtop<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T~s money from Bandcamp<enter><tag-prefix-cond><save-message>+Business%20-%20Bandcamp<enter>y<end-cond><untag-pattern>~T<enter>\
+T~s "money from Bandcamp"<enter><tag-prefix-cond><save-message>+Business%20-%20Bandcamp<enter>y<end-cond><untag-pattern>~T<enter>\
 \
-T~s ^Patreon Creator Payout<enter><tag-prefix-cond><save-message>+Business%20-%20Patreon<enter>y<end-cond><untag-pattern>~T<enter>\
-T~s was just sent to you from Patreon!$<enter><tag-prefix-cond><save-message>+Business%20-%20Patreon<enter>y<end-cond><untag-pattern>~T<enter>\
+T~s "^Patreon Creator Payout"<enter><tag-prefix-cond><save-message>+Business%20-%20Patreon<enter>y<end-cond><untag-pattern>~T<enter>\
+T~s "was just sent to you from Patreon!$"<enter><tag-prefix-cond><save-message>+Business%20-%20Patreon<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 T~s "- Stack Exchange$"<enter><tag-prefix-cond><save-message>+StackExchange<enter>y<end-cond><untag-pattern>~T<enter>\
 T%f __stackexchange<enter><tag-prefix-cond><save-message>+StackExchange<enter>y<end-cond><untag-pattern>~T<enter>\
@@ -74,6 +75,8 @@ T%f __statuses<enter><tag-prefix-cond><save-message>+Statuses<enter>y<end-cond><
 T~f no-reply@twitch.tv<enter><tag-prefix-cond><save-message>+Twitch<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 T~f notifications@github.com<enter><tag-prefix-cond><save-message>+GitHub<enter>y<end-cond><untag-pattern>~T<enter>\
+\
+T~f gitlab@gitlab.freedesktop.org<enter><tag-prefix-cond><save-message>+Freedesktop%20GitLab<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 T%f __CI<enter><tag-prefix-cond><save-message>+CI<enter>y<end-cond><untag-pattern>~T<enter>\
 T~c ci_activity@noreply.github.com<enter><tag-prefix-cond><save-message>+CI<enter>y<end-cond><untag-pattern>~T<enter>\
@@ -110,16 +113,20 @@ set delete=yes
 unset mark_old
 
 bind index,pager <F73>      sidebar-prev      # shift+up
-bind index,pager <backtab>  sidebar-next-new
+bind index,pager <BackTab>  sidebar-next-new
 bind index,pager <F72>      sidebar-next      # shift+down
 bind index,pager <S-Right>  sidebar-open
+bind index,pager <S-Prev>   sidebar-prev
+bind index,pager <S-Next>   sidebar-next
 
 set sidebar_visible
 set sidebar_folder_indent
 set sidebar_short_path
 set sidebar_next_new_wrap
-set sidebar_format="%B%*  %!%?N?N?"
+set sidebar_format="%D%*  %!%?N?N?"
 set mail_check_stats
+set rfc2047_parameters
+set askcc
 
 bind index G imap-fetch-mail
 
@@ -130,9 +137,12 @@ bind index "\CE" next-entry
 bind generic,pager "\CY" previous-line
 bind generic,pager "\CE" next-line
 
+bind index S sidebar-toggle-visible
+
 set print_command="lp"
 set tilde
 set user_agent
+set tmpdir=~/.cache
 
 
 set alias_file = ~/.mutt/aliases
