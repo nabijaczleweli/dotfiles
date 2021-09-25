@@ -144,6 +144,8 @@ set tilde
 set user_agent
 set tmpdir=~/.cache
 
+macro index,pager,attach,compose \\ "<enter-command>toggle pipe_decode<Enter>"
+
 
 set alias_file = ~/.mutt/aliases
 source $alias_file
