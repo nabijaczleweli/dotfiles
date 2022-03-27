@@ -18,6 +18,7 @@
 [alias]
 	diffs = diff --staged
 	camend = commit --amend
+	llog = log --no-show-signature
 [log]
 	showSignature = true
 [mergetool]
@@ -28,3 +29,12 @@
 	headers = "X-Mutt-PGP: OS\n"
 [am]
 	messageid = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[pull]
+	rebase = true
+[rebase]
+	abbreviateCommands = true
