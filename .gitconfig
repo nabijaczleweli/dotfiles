@@ -38,3 +38,5 @@
 	rebase = true
 [rebase]
 	abbreviateCommands = true
+[tag]
+	sort = taggerdate
