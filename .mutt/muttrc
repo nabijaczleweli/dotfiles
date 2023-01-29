@@ -57,6 +57,7 @@ macro index <f11> '<imap-fetch-mail>\
 T~t root@tarta.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/001.%20tarta<enter>y<end-cond><untag-pattern>~T<enter>\
 T~t szarotka.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/002.%20szarotka<enter>y<end-cond><untag-pattern>~T<enter>\
 T~t nabtop.nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/003.%20nabtop<enter>y<end-cond><untag-pattern>~T<enter>\
+T~t nabijaczleweli/smartups@nabijaczleweli.xyz$<enter><tag-prefix-cond><save-message>+Admin/005.%20smartups<enter>y<end-cond><untag-pattern>~T<enter>\
 \
 T~s "money from Bandcamp"<enter><tag-prefix-cond><save-message>+Business%20-%20Bandcamp<enter>y<end-cond><untag-pattern>~T<enter>\
 \
