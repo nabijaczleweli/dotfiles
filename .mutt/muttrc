@@ -22,6 +22,7 @@ set imap_check_subscribed
 
 # https://gitlab.com/muttmua/mutt/-/wikis/MuttGuide/Caching
 set header_cache = '/home/nabijaczleweli/Mail/cache'
+set header_cache_backend = 'lmdb'
 set message_cachedir = '/home/nabijaczleweli/Mail/cache'
 
 set header_cache_compress_method = 'zstd'
@@ -125,6 +126,7 @@ set sidebar_folder_indent
 set sidebar_short_path
 set sidebar_next_new_wrap
 set sidebar_format="%D%*  %!%?N?N?"
+set index_format="%4C %Z %<[y?%<[d?%{%R}&%{%m-%d}>&%{%F}> %-15.15L (%<l?%4l&%4c>) %s"
 set mail_check_stats
 set rfc2047_parameters
 set askcc
@@ -144,9 +146,11 @@ set print_command="lp"
 set tilde
 set user_agent
 set tmpdir=~/.cache
-unset help
 
 macro index,pager,attach,compose \\ "<enter-command>toggle pipe_decode<Enter>"
 
+
 set alias_file = ~/.mutt/aliases
 source $alias_file
+
+unset help
