@@ -47,3 +47,9 @@
 	xfuncname = "^\\.S[SHsh] .*"
 [safe]
 	directory = *
+[tar "tar.gz"]
+	command = gzip -n
+[tar "tgz"]
+	command = gzip -n
+[merge]
+	conflictStyle = zdiff3
